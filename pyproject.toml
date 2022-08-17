@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "crab-v2-sdk-python"
+version = "0.1.0"
+description = "Python SDK to interact with Crab v2"
+authors = ["Haythem Sellami <sellamihaythem96@gmail.com>"]
+license = 'MIT'
+packages = [
+    { include = 'abis' },
+    { include = 'crab_v2_sdk_python' },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+web3 = '5.28.0'
+py-eth-sig-utils = "^0.4.0"
+eth-keys = '0.3.4'
+python-dotenv = "^0.20.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
