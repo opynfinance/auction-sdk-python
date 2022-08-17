@@ -8,7 +8,7 @@ having also `git` installed.
 ```bash
 # Latest version
 python3 -m pip install \
-    "git+https://github.com/opynfinance/crab-v2-sdk-python.git#egg=crab_v2_sdk_python&subdirectory=crab_v2_sdk_python"
+    "git+https://github.com/opynfinance/crab-v2-sdk-python.git#egg=crab_v2_sdk_python"
 ```
 
 ## Usage
