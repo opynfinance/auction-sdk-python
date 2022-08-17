@@ -1,5 +1,7 @@
 # OPYN SDK
 
+A python SDK to help interacting with Crab v2.
+
 ## Install
 
 It's possible to install the package via `pip`,
