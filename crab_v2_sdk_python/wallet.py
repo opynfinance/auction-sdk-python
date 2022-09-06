@@ -18,6 +18,8 @@ from py_eth_sig_utils.signing import sign_typed_data
 from web3 import Web3
 from crab_v2_sdk_python.definitions import BidData, ContractConfig, Domain, MessageToSign
 from crab_v2_sdk_python.erc20 import ERC20Contract
+from crab_v2_sdk_python.crab_v2 import CrabV2Contract
+
 from crab_v2_sdk_python.utils import get_address
 
 # ---------------------------------------------------------------------------
@@ -161,3 +163,16 @@ class Wallet:
         token = ERC20Contract(token_config)
 
         token.approve(self.public_key, self.private_key, crab_config.address, amount)
+
+    def is_nonce_used(self, crab_config: ContractConfig, nonce: int) -> bool:
+        """Check if specific nonce is already used, return false if not
+        
+        Args:
+            crab_config (ContractConfig): Configuration to setup the Settlement contract
+            nonce (int): nonce to check
+        """
+        crab = CrabV2Contract(crab_config)
+
+        return crab.nonces(self.public_key, nonce)
+
+    # def submit_bid(self, )
