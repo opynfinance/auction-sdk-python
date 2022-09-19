@@ -6,7 +6,9 @@
 # version ='0.1.0'
 # ---------------------------------------------------------------------------
 
+import requests
 import os
+import time
 from dotenv import load_dotenv
 from datetime import datetime
 from dataclasses import asdict
@@ -15,6 +17,17 @@ from crab_v2_sdk_python.wallet import Wallet
 
 load_dotenv()
 
+@dataclass
+class Auction:
+    currentAuctionId: int
+    nextAuctionId: int
+    oSqthAmount: str
+    price: str
+    auctionEnd: int
+    isSelling: bool
+    minSize: int
+
+auction_endpoint = 'http://localhost:3000/'
 rpc_token = os.getenv('RPC_TOKEN')
 current_chain = Chains.ETHEREUM
 rpc = {Chains.ETHEREUM: os.getenv('RPC_URL')}
@@ -46,3 +59,26 @@ print("signed_maker_order", signed_maker_order)
 
 is_nonce_used = maker_wallet.is_nonce_used(crab_config, 1)
 print("is_nonce_used", is_nonce_used)
+
+
+# create new auction 
+print("#### Crating new auction ####")
+print("round(time.time()", round(time.time()))
+print("int(round(time.time() + 3600 * 60)) * 1000", int((round(time.time()) + 3600) * 1000))
+auction_to_create : Auction = Auction(1, 2, 100, 1, int((round(time.time()) + 3600) * 1000), True, 0)
+req = requests.post(auction_endpoint + 'api/auction/createOrEditAuction',
+                    json={"signature": "", "auction": auction_to_create.__dict__})
+
+created_auction = (requests.get(auction_endpoint + 'api/auction/getLatestAuction')).json()
+print("created_auction", created_auction)
+
+print("### Submiting bid ###")
+maker_wallet.submit_bid(
+    Domain("CrabOTC", "2", 3, crab_contract_address),
+    1,
+    1,    # 1 oSQTH
+    2,     # .2 WETH
+    True, 
+    60 * 1000, 
+    int(round(time.time() * 1000))  # some random number that's not used before
+)

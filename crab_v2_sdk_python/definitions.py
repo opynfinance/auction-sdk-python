@@ -65,3 +65,10 @@ class ContractConfig:
     address: str
     rpc_uri: str
     chain_id: Chains = Chains.ETHEREUM
+
+
+@dataclass
+class Signature:
+    v: int
+    r: str
+    s: str
