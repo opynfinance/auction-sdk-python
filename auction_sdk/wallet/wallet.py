@@ -17,18 +17,14 @@ import requests
 import eth_keys
 from py_eth_sig_utils.signing import sign_typed_data
 from web3 import Web3
-from crab_v2_sdk_python.definitions import BidData, ContractConfig, Domain, MessageToSign, Signature
-from crab_v2_sdk_python.erc20 import ERC20Contract
-from crab_v2_sdk_python.crab_v2 import CrabV2Contract
-from crab_v2_sdk_python.utils import get_address
+from auction_sdk.common.definitions import BidData, ContractConfig, Domain, MessageToSign, Signature
+from auction_sdk.common.erc20 import ERC20Contract
+from auction_sdk.crab.crab_v2 import CrabV2Contract
+from auction_sdk.common.utils import get_address
 
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-# bytes32 private constant _CRAB_BALANCE_TYPEHASH =
-#     keccak256(
-#         "Order(uint256 bidId,address trader,uint256 quantity,uint256 price,bool isBuying,uint256 expiry,uint256 nonce)"
-#     );
 ORDER_TYPES = {
     "EIP712Domain": [
         {"name": "name", "type": "string"},

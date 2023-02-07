@@ -1,4 +1,4 @@
-from crab_v2_sdk_python import __version__
+from auction_sdk import __version__
 
 
 def test_version():

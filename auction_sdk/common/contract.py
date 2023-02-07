@@ -14,9 +14,9 @@
 import json
 from pathlib import Path
 from web3 import Web3
-from crab_v2_sdk_python.chains import Chains
-from crab_v2_sdk_python.definitions import ContractConfig
-from crab_v2_sdk_python.utils import get_address
+from auction_sdk.chains import Chains
+from auction_sdk.definitions import ContractConfig
+from auction_sdk.utils import get_address
 
 
 # ---------------------------------------------------------------------------

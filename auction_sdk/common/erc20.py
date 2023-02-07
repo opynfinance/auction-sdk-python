@@ -11,9 +11,9 @@
 # ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
-from crab_v2_sdk_python.contract import ContractConnection
-from crab_v2_sdk_python.definitions import ContractConfig
-from crab_v2_sdk_python.utils import get_address
+from auction_sdk.contract import ContractConnection
+from auction_sdk.definitions import ContractConfig
+from auction_sdk.utils import get_address
 
 # ---------------------------------------------------------------------------
 # ERC20 Contract

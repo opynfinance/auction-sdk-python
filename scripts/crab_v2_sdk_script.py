@@ -12,8 +12,8 @@ import time
 from dotenv import load_dotenv
 from datetime import datetime
 from dataclasses import asdict
-from crab_v2_sdk_python.definitions import *
-from crab_v2_sdk_python.wallet import Wallet
+from auction_sdk.definitions import *
+from auction_sdk.wallet.wallet import Wallet
 
 load_dotenv()
 

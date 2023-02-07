@@ -12,7 +12,7 @@
 # Imports
 # ---------------------------------------------------------------------------
 from dataclasses import dataclass
-from crab_v2_sdk_python.chains import Chains
+from auction_sdk.chains import Chains
 
 # ---------------------------------------------------------------------------
 # Data Classes
